@@ -9,6 +9,11 @@ class PseudoChain {
     this.newTransaction = this.newTransaction.bind(this);
     this.lastBlock = this.lastBlock.bind(this);
     this.proofOfWork = this.proofOfWork.bind(this);
+
+    this.newBlock(
+      100,
+      "733e94fcb44e5efce185f8f3560d67412b5ff4de063e256a02914cf7b6bc1757"
+    );
   }
   //takes a proof, and a previous hash,
   //create new block in the chain
@@ -38,7 +43,7 @@ class PseudoChain {
     return this.lastBlock()["index"] + 1;
   }
 
-  //hash function that encrypts block
+  //hash function that hashes block
   hash(block) {
     const blockString = JSON.stringify(block);
     const hash = crypto
@@ -53,15 +58,20 @@ class PseudoChain {
   lastBlock() {
     return this.chain.slice(-1)[0];
   }
-
+  //determines whether attempted solution hash matches pattern
+  //hash key is 420
+  //solution hash is made up of previous block hashed, then combined with new number
+  //pattern is first character must match a
   validProof(lastProof, proof) {
     const guessHash = crypto
       .createHmac("sha256", "420")
       .update(`${lastProof}${proof}`)
       .digest("hex");
-    return guessHash.substr(0, 5) === process.env.RESOLUTION_HASH;
+    return guessHash.substr(0, 1) === "a";
   }
 
+  //start at 0, increment until hashes match
+  //then return hash that matched
   proofOfWork(lastProof) {
     let proof = 0;
     while (true) {
