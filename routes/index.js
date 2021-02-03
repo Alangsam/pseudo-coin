@@ -21,12 +21,12 @@ router.get("/javascripts/mainScript.js", function (req, res, next) {
 router.get("/", function (req, res, next) {
     res.sendFile(path.join(__dirname + "/../public/index.html"));
 });
-router.get("/pseudo-chain", function (req, res, next) {
-    res.sendFile(path.join(__dirname + "/../public/chain.html"));
-});
+// router.get("/pseudo-chain", function (req, res, next) {
+//     res.sendFile(path.join(__dirname + "/../public/chain.html"));
+// });
 
-router.post("/transactions/new", PseudoCoin.newTransaction, resMiddleware);
+// router.post("/transactions/new", PseudoCoin.newTransaction, resMiddleware);
 
-router.get("/mine", PseudoCoin.mine, resMiddleware);
+// router.get("/mine", PseudoCoin.mine, resMiddleware);
 
 module.exports = router;

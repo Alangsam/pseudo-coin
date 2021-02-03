@@ -8,6 +8,29 @@
     float: left;
 }
 
+.horizontal-center {
+    margin: auto;
+    display: inline-block;
+    width: 30%;
+    height: 200px;
+    text-align: center;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.custom-input {
+    width: 75%;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: rgb(244, 244, 244);
+    font-size: 20px;
+    padding: 6px 4px;
+    margin-top: 10px;
+}
+#inputs-div {
+    padding-top: 100px;
+}
+
 .full-width {
     display: block;
     width: 100%;

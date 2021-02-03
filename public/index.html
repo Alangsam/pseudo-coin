@@ -17,10 +17,28 @@
         <button id="" class="button" onclick="viewChain()">
             <span class="btn-text">Pseudo Chain</span>
         </button>
-        <button class="button"><span class="btn-text">Mine</span></button>
-        <button class="button">
-            <span class="btn-text">New Transaction</span>
+        <button class="button" onclick="mineCoin()">
+            <span class="btn-text">Mine</span>
         </button>
+        <button class="button">
+            <span class="btn-text" onclick="newTransaction()"
+                >New Transaction</span
+            >
+        </button>
+    </div>
+    <div id="inputs-div" class="full-width">
+        <div class="horizontal-center">
+            <label>From Key</label>
+            <input id="from-key-input" class="custom-input" />
+        </div>
+        <div class="horizontal-center">
+            <label>Destination Key</label>
+            <input id="destination-key-input" class="custom-input" />
+        </div>
+        <div class="horizontal-center">
+            <label>Amount</label>
+            <input id="amount-input" class="custom-input" />
+        </div>
     </div>
     <body>
         <script src="javascripts/mainScript.js"></script>

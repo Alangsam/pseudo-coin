@@ -5,7 +5,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 const indexRouter = require("./routes/index");
-const api = require("./api/v1/getChain");
 
 var app = express();
 
@@ -20,7 +19,9 @@ app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/api/v1", api);
+app.use("/api/v1/getChain", require("./api/v1/getChain"));
+app.use("/api/v1/mineCoin", require("./api/v1/mineCoin"));
+app.use("/api/v1/newTransaction", require("./api/v1/newTransaction"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
